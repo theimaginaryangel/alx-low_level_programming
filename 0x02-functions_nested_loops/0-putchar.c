@@ -1,18 +1,19 @@
 #include "main.h"
 
 /**
- * main - prints "putchar"
- *
- * Return: 0 if execution was successful
+ * main - Entry point
+ * Return:0
  */
+
 int main(void)
 {
-        char *text = "_putchar\n";
-        int textLen = 10;
-        int i = 0;
-
-        for (; i < textLen; i++)
-        {
-                _putchar(text[i]);
-        }
-        return (0);
+char c[9] = "_putchar";
+int i = 0;
+while (i < 8)
+{
+_putchar(c[i]);
+i++;
+}
+_putchar('\n');
+return (0);
+}

@@ -1,21 +1,21 @@
 #include <stdio.h>
-
 /**
- * main - prints the English alphabet in lowercase
- * except e and q
- *
- * Return: 0 if execution was successful
+ * main - Entry point
+ * Description: Print the alphabet in lowercase.
+ * Except 'q' and 'e'.
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	char letter = 'a';
-
-	for (letter = 'a'; letter <= 'z'; letter++)
-	{
-		if (letter != 'e' && letter != 'q')
-			putchar(letter);
-	}
-
-	putchar('\n');
-	return (0);
+char lowerCase = 'a';
+while (lowerCase <= 'z')
+{
+if (lowerCase != 'e' && lowerCase != 'q')
+{
+putchar(lowerCase);
+}
+lowerCase++;
+}
+putchar('\n');
+return (0);
 }

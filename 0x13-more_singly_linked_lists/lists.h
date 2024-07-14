@@ -1,30 +1,20 @@
-#ifndef LISTS_H
-#define LISTS_H
-#include <stddef.h>
-#define PRINT_LOOP_NODE(node) {\
-	print_int_str(0, "[", 0); \
-	print_ptr((void *)(node), 0); \
-	print_int_str(0, "] ", 0); \
-	print_int_str((node)->n, NULL, 0);\
-	_putchar('\n'); }
-#define PRINT_LOOP_NODE_2(node) {\
-	print_int_str(0, "-> [", 0); \
-	print_ptr((void *)(node), 0); \
-	print_int_str(0, "] ", 0); \
-	print_int_str((node)->n, NULL, 0);\
-	_putchar('\n'); }
+#ifndef _MORE_LINK_LISTS_
+#define _MORE_LINK_LISTS_
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 /**
- * struct listint_s - Represents a singly linked list
+ * struct listint_s - singly linked list
  * @n: integer
  * @next: points to the next node
+ *
+ * Description: singly linked list node structure
  */
-struct listint_s
+typedef struct listint_s
 {
-	int n;
-	struct listint_s *next;
-};
-typedef struct listint_s listint_t;
-int _putchar(char c);
+int n;
+struct listint_s *next;
+} listint_t;
 size_t print_listint(const listint_t *h);
 size_t listint_len(const listint_t *h);
 listint_t *add_nodeint(listint_t **head, const int n);
@@ -37,14 +27,7 @@ int sum_listint(listint_t *head);
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n);
 int delete_nodeint_at_index(listint_t **head, unsigned int index);
 listint_t *reverse_listint(listint_t **head);
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-char exists(void **arr, size_t n, void *item);
-void print_ptr(void *ptr, char stage);
-void print_int_str(int num, char *str, char stage);
 size_t print_listint_safe(const listint_t *head);
-void *_realloc1(void *ptr, unsigned int old_size, unsigned int new_size);
-char exists1(void **arr, size_t n, void *item);
-void free_nodes(void **nodes_ptr, size_t n);
 size_t free_listint_safe(listint_t **h);
 listint_t *find_listint_loop(listint_t *head);
 #endif

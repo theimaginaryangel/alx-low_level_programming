@@ -1,40 +1,45 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 /**
- * main - prints all possible different combinations of two two-digit
- * base-10 numbers
- *
- * Return: 0 if execution was successful
+ * main - Entry point
+ * Description: A program that prints all possible
+ * combinations of two two-digit numbers.
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int num1;
-	int num2;
-	int upper_limit;
-
-	upper_limit = 99;
-
-	for (num1 = 0; num1 <= upper_limit; num1++)
-	{
-		for (num2 = 0; num2 <= upper_limit; num2++)
-		{
-			if (num1 < num2)
-			{
-				if (num1 >= 0 && num2 > 1)
-				{
-					putchar(',');
-					putchar(' ');
-				}
-
-				putchar((num1 / 10) + 0x30);
-				putchar((num1 % 10) + 0x30);
-				putchar(' ');
-				putchar((num2 / 10) + 0x30);
-				putchar((num2 % 10) + 0x30);
-			}
-		}
-	}
-
-	putchar('\n');
-	return (0);
+int digitOne = 0;
+int firstDigitOne;
+int secondDigitOne;
+int digitTwo;
+int firstDigitTwo;
+int secondDigitTwo;
+while (digitOne <= 98)
+{
+firstDigitOne = (digitOne / 10 + '0');
+secondDigitOne = (digitOne % 10 + '0');
+digitTwo = 0;
+while (digitTwo <= 99)
+{
+firstDigitTwo = (digitTwo / 10 + '0');
+secondDigitTwo = (digitTwo % 10 + '0');
+if (digitOne < digitTwo)
+{
+putchar(firstDigitOne);
+putchar(secondDigitOne);
+putchar(' ');
+putchar(firstDigitTwo);
+putchar(secondDigitTwo);
+if (digitOne != 98)
+{
+putchar(',');
+putchar(' ');
+}
+}
+digitTwo++;
+}
+digitOne++;
+}
+putchar('\n');
+return (0);
 }

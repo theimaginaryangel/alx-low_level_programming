@@ -1,19 +1,10 @@
 #include "main.h"
-
 /**
- * _abs - prints the absolute value of a number
- * @n: The number whose absolute value is to be found
- *
- * Return: |n| of n
+ * _abs - A function that computes the absolute value of an integer.
+ * @n : integer
+ * Return: Always 0 (Success)
  */
 int _abs(int n)
 {
-	if (n >= 0)
-	{
-		return (n);
-	}
-	else
-	{
-		return (n * -1);
-	}
+return (n >= 0 ? n : n * -1);
 }

@@ -1,14 +1,14 @@
-#ifndef CALC_H
-#define CALC_H
+#ifndef _HEADER_
+#define _HEADER_
 /**
- * struct op - Represents an operation
- * @op: The operator
- * @f: The function associated with the operation
+ * struct op - Structure op
+ * @op: operator
+ * @f: The function
  */
 typedef struct op
 {
-	char *op;
-	int (*f)(int a, int b);
+char *op;
+int (*f)(int a, int b);
 } op_t;
 int op_add(int a, int b);
 int op_sub(int a, int b);

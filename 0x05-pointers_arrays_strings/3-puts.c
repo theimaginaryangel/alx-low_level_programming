@@ -1,18 +1,16 @@
-#include "holberton.h"
-
+#include "main.h"
 /**
- * _puts - Prints a string followed by a newline
- * @str: The string to be printed
- */
+ * _puts - prints a string, followed by a new line,
+ * @str: pointer to the string to print
+ * Return: void
+*/
 void _puts(char *str)
 {
-	int i = 0;
-
-	while (*(str + i) != '\0')
-	{
-		_putchar(*(str + i));
-		i++;
-	}
-	_putchar('\n');
-	b10_pow(10);
+int i = 0;
+while (str[i])
+{
+_putchar(str[i]);
+i++;
+}
+_putchar('\n');
 }

@@ -1,25 +1,21 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 /**
- * main - prints the n times table
- *
- * Return: 0 if successful
+ * main - Entry point
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int limit = 1024;
-	int i;
-	int sum = 0;
-
-	for (i = 1; i < limit; i++)
-	{
-		if (i % 3 == 0 || i % 5 == 0)
-		{
-			sum += i;
-		}
-	}
-
-	printf("%d\n", sum);
-
-	return (0);
+int multiplesofThree = 0;
+int sum = 0;
+while (multiplesofThree < 1024)
+{
+if (multiplesofThree % 3 == 0 || multiplesofThree % 5 == 0)
+{
+sum += multiplesofThree;
+}
+multiplesofThree++;
+}
+printf("%i\n", sum);
+return (0);
 }

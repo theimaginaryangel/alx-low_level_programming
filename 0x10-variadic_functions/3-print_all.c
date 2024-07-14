@@ -1,83 +1,89 @@
-#include <stdarg.h>
-#include <stdio.h>
 #include "variadic_functions.h"
-
+#include <stdlib.h>
+#include <stdio.h>
 /**
- * print_char - Prints a character from an arguments list
- * @args: The arguments list
- */
-void print_char(va_list *args)
-{
-	printf("%c", va_arg(*args, int));
-}
-
-/**
- * print_integer - Prints an integer from an arguments list
- * @args: The arguments list
- */
-void print_integer(va_list *args)
-{
-	printf("%d", va_arg(*args, int));
-}
-
-/**
- * print_float - Prints a float from an arguments list
- * @args: The arguments list
- */
-void print_float(va_list *args)
-{
-	printf("%f", va_arg(*args, double));
-}
-
-/**
- * print_string - Prints a character array from an arguments list
- * @args: The arguments list
- */
-void print_string(va_list *args)
-{
-	char *str[2];
-	int i;
-
-	str[0] = va_arg(*args, char *);
-	str[1] = "(nil)";
-	i = str[0] == NULL;
-	printf("%s", str[i]);
-}
-
-/**
- * print_all - Prints anything
- * @format: A list of types of arguments passed to the function
- */
+  * print_all - Prints anything
+  * @format: The conversion specifier to prints
+  *
+  * Return: Nothing
+  */
 void print_all(const char * const format, ...)
 {
-	unsigned int i;
-	int j;
-	va_list args;
-	fmt_printer_t fmt_printers[] = {
-		{'c', print_char},
-		{'i', print_integer},
-		{'f', print_float},
-		{'s', print_string},
-	};
-	char *seps[] = {", ", "\0"};
-
-	va_start(args, format);
-	i = 0;
-	while (format && *(format + i) != '\0')
-	{
-		j = 0;
-		while (j < 4)
-		{
-			if (*(format + i) == (fmt_printers + j)->type)
-			{
-				(fmt_printers + j)->func(&args);
-				printf("%s", seps[*(format + i + 1) == 0]);
-				break;
-			}
-			j++;
-		}
-		i++;
-	}
-	va_end(args);
-	printf("\n");
+va_list args;
+f_dt form_types[] = {
+{ "c", print_a_char },
+{ "i", print_a_integer },
+{ "f", print_a_float },
+{ "s", print_a_char_ptr }
+};
+unsigned int i = 0;
+unsigned int j = 0;
+char *separator = "";
+va_start(args, format);
+while (format != NULL && format[i])
+{
+j = 0;
+while (j < 4)
+{
+if (format[i] == *form_types[j].identifier)
+{
+form_types[j].f(separator, args);
+separator = ", ";
+}
+j++;
+}
+i++;
+}
+va_end(args);
+printf("\n");
+}
+/**
+  * print_a_char - Prints a character of char type
+  * @separator: The separator of the character
+  * @args: A list of variadic arguments
+  *
+  * Return: Nothing
+  */
+void print_a_char(char *separator, va_list args)
+{
+printf("%s%c", separator, va_arg(args, int));
+}
+/**
+  * print_a_integer - Prints a character of integer type
+  * @separator: The separator of the character
+  * @args: A list of variadic arguments
+  *
+  * Return: Nothing
+  */
+void print_a_integer(char *separator, va_list args)
+{
+printf("%s%i", separator, va_arg(args, int));
+}
+/**
+  * print_a_float - Prints a character of float type
+  * @separator: The separator of the character
+  * @args: A list of variadic arguments
+  *
+  * Return: Nothing
+  */
+void print_a_float(char *separator, va_list args)
+{
+printf("%s%f", separator, va_arg(args, double));
+}
+/**
+  * print_a_char_ptr - Prints the content of pointer to char type
+  * @separator: The separator of the character
+  * @args: A list of variadic arguments
+  *
+  * Return: Nothing
+  */
+void print_a_char_ptr(char *separator, va_list args)
+{
+char *arg = va_arg(args, char *);
+if (arg == NULL)
+{
+printf("%s%s", separator, "(nil)");
+return;
+}
+printf("%s%s", separator, arg);
 }

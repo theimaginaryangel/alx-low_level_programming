@@ -1,10 +1,33 @@
-# Debugging
+# 0x03. C - Debugging
 
-This project contains __C__ tasks for learning some debugging routines.
+## Learning Objectives
 
-## Tasks Completed
+At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
-+ [x] 0\. Multiple mains<br/>_**0-main.c**_ tests that the function `positive_or_negative()` gives the correct output when given a case of `0`.
-+ [x] 1\. Like, comment, subscribe<br/>_**1-main.c**_ shows a commented out code section that is causing the output to go into an infinite loop.
-+ [x] 2\. 0 > 972?<br/>_**2-largest_number.c**_ prints the largest of three integers.
-+ [x] 3\. Leap year<br/>_**3-print_remaining_days.c**_ converts a date to the day of year and determines how many days are left in the year, taking leap year into consideration.
+-   What is debugging
+-   What are some methods of debugging manually
+-   How to read the error messages
+
+---
+
+### [0. Multiple mains](./0-main.c)
+
+-   Based on the main.c file above, create a file named 0-main.c. This file must test that the function positive_or_negative() gives the correct output when given a case of 0.
+
+### [1. Like, comment, subscribe](./1-main.c)
+
+-   Copy this main file. Comment out (don’t delete it!) the part of the code that is causing the output to go into an infinite loop.
+
+### [2. 0 > 972?](./2-largest_number.c)
+
+-   Fix the code in 2-largest_number.c so that it correctly prints out the largest of three numbers, no matter the case.
+
+### [3. Leap year](./3-print_remaining_days.c)
+
+-   Fix the print_remaining_days() function so that the output works correctly for all dates and all leap years.
+
+---
+
+## Author
+
+-   **Benjamin Ofori-Quansah** - [View Profile](https://github.com/essilfiequansah)

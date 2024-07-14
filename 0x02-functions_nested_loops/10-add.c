@@ -1,13 +1,11 @@
 #include "main.h"
-
 /**
- * add - adds two integers
- * @left: The first integer
- * @right: The second integer
- *
- * Return: the sum of the two integers
+ * add - A function that adds two integers and returns the result.
+ * @firstNum : First integer to add
+ * @secondNum : Second integer to add
+ * Return: 0
  */
-int add(int left, int right)
+int add(int firstNum, int secondNum)
 {
-	return (left + right);
+return (firstNum + secondNum);
 }

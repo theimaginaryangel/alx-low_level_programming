@@ -1,43 +1,26 @@
-#include "holberton.h"
-
+#include "main.h"
+#include <stdio.h>
 /**
- * is_prime - Checks if a given integer is a prime number
- * @i: The divisor
- * @n: The number to check
- *
- * Return: 1 if the number is prime, otherwise 0
- */
-int is_prime(int i, int n)
-{
-	if (n > 1)
-	{
-		if (i == n)
-			return (1);
-		else if (n % i == 0)
-			return (0);
-		else
-			return (is_prime(i + 1, n));
-	}
-	return (0);
-}
-
-/**
- * is_prime_number - Checks if a given integer is a prime number
- * @n: The number to check
- *
- * Return: 1 if the number is prime, otherwise 0
+ * is_prime_number - check if n is a prime number
+ * @n: int
+ * Return: 0 or 1
  */
 int is_prime_number(int n)
 {
-	int start = 2;
-
-	if (n <= 1 || (n % 2 == 0 && n != 2)
-		|| (n % 3 == 0 && n != 3)
-		|| (n % 5 == 0 && n != 5)
-		|| (n % 7 == 0 && n != 7))
-	{
-		return (0);
-	}
-	else
-		return (is_prime(start, n));
+return (check_prime(n, 2));
+}
+/**
+ * check_prime - check all number < n if they can divide it
+ * @n: int
+ * @resp: int
+ * Return: int
+ */
+int check_prime(int n, int resp)
+{
+if (resp >= n && n > 1)
+return (1);
+else if (n % resp == 0 || n <= 1)
+return (0);
+else
+return (check_prime(n, resp + 1));
 }

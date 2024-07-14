@@ -1,15 +1,11 @@
 #include "main.h"
-
 /**
- * _isalpha - checks for alphabetic character
- * @c: The letter whose alphabetism is to be found
- *
- * Return: 1 if `c` is an alphabet, otherwise 0
+ * _isalpha - A function that checks for alphabetic character.
+ * @alphaBet : This checks the alpahabetic character
+ * Return: Always 0 (Success)
  */
-int _isalpha(int c)
+int _isalpha(int alphaBet)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	else
-		return (0);
+return ((alphaBet >= 97 && alphaBet <= 122) ||
+(alphaBet >= 65 && alphaBet <= 90));
 }

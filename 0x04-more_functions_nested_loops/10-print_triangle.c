@@ -1,21 +1,29 @@
-#include "holberton.h"
-
+#include "main.h"
 /**
- * print_triangle - prints a right-angled triangle
- * @size: the height of the triangle
+ * print_triangle - a function that prints a triangle.
+ * @size: the size of the triangle.
+ * Return: Always 0.
  */
 void print_triangle(int size)
 {
-	int i, j;
-
-	for (i = 1; i <= size; i++)
-	{
-		for (j = i; j < size; j++)
-			_putchar(' ');
-		for (j = 1; j <= i; j++)
-			_putchar('#');
-		_putchar('\n');
-	}
-	if (size <= 0)
-		_putchar('\n');
+int tp, lp, rp;
+if (size <= 0)
+{
+_putchar('\n');
+}
+else
+{
+for (tp = 0; tp <= (size - 1); tp++)
+{
+for (lp = 0; lp < (size - 1) - tp; lp++)
+{
+_putchar(' ');
+}
+for (rp = 0; rp <= tp; rp++)
+{
+_putchar('#');
+}
+_putchar('\n');
+}
+}
 }

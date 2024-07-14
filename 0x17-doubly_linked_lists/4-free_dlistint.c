@@ -1,14 +1,17 @@
 #include "lists.h"
 
 /**
- * free_dlistint - Frees a dlistint_t list
- * @head: The pointer to the head node's address
+ * free_dlistint - frees a dlistint_t list.
+ * @head: head of the dlistint_t list.
  */
 void free_dlistint(dlistint_t *head)
 {
-	if (head != NULL)
-	{
-		free_dlistint(head->next);
-		free(head);
-	}
+dlistint_t *temp;
+
+while (head)
+{
+temp = head->next;
+free(head);
+head = temp;
+}
 }

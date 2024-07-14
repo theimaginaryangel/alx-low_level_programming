@@ -1,33 +1,35 @@
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <time.h>
 /**
- * main - prints all possible different combinations of two base-10 digits
- *
- * Return: 0 if execution was successful
+ * main - Entry point
+ * Description: A program that prints all possible different
+ * combinations of two digits.
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int digit1;
-	int digit2;
-
-	for (digit1 = 0x30; digit1 <= 0x39; digit1++)
-	{
-		for (digit2 = 0x30; digit2 <= 0x39; digit2++)
-		{
-			if (digit1 < digit2)
-			{
-				putchar(digit1);
-				putchar(digit2);
-
-				if ((digit1 >= 0x30 && digit1 < 0x38) && digit2 <= 0x39)
-				{
-					putchar(',');
-					putchar(' ');
-				}
-			}
-		}
-	}
-
-	putchar('\n');
-	return (0);
+int number;
+int digits = 0;
+while (digits < 10)
+{
+number = 0;
+while (number < 10)
+{
+if (digits != number && digits < number)
+{
+putchar('0' + digits);
+putchar('0' + number);
+if (number + digits != 17)
+{
+putchar(',');
+putchar(' ');
+}
+}
+number++;
+}
+digits++;
+}
+putchar('\n');
+return (0);
 }

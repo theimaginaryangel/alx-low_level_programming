@@ -1,19 +1,19 @@
-#include "holberton.h"
-
+#include "main.h"
 /**
- * puts2 - Prints every other character of a string
- * @str: The string whose other characters are to be printed
- */
+ * puts2 - prints a string, followed by a new line,
+ * @str: pointer to the string to print
+ * Return: void
+*/
 void puts2(char *str)
 {
-	int length = 0;
-
-	while (*(str + length) != '\0')
-	{
-		if (length % 2 == 0)
-			_putchar(*(str + length));
-		length++;
-	}
-	_putchar('\n');
-	b10_pow(10);
+int i = 0;
+while (str[i] != '\0')
+{
+if (i % 2 == 0)
+{
+_putchar(str[i]);
+}
+i++;
+}
+_putchar('\n');
 }

@@ -1,13 +1,10 @@
 #include <stdio.h>
-
 /**
- * main - Prints the name of the file this program
- * was compiled from, followed by a new line
- *
- * Return: 0 (always successful)
- */
+  * main - Prints the file name of the program
+  * Return: Always 0
+  */
 int main(void)
 {
-	printf("%s\n", __FILE__);
-	return (0);
+printf("%s\n", __FILE__);
+return (0);
 }

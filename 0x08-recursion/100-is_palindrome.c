@@ -1,48 +1,48 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * _strlen_recursion - Computes the length of a string
- * @s: The string
- *
- * Return: The length of the string
+ * last_index - returns the last index of a string (counts the null char)
+ * @s: pointer the string
+ * Return: int
  */
-int _strlen_recursion(char *s)
+
+int last_index(char *s)
 {
-	return (*s == '\0' ? 0 : 1 + _strlen_recursion(s + 1));
+	int n = 0;
+
+	if (*s > '\0')
+		n += last_index(s + 1) + 1;
+
+	return (n);
 }
 
 /**
- * is_palindrome_substr - Checks if a string is a palindrome
- * @s: The string to check
- * @left: The left index
- * @right: The right index
- *
- * Return: 1 if s is a palindrome, otherwise 0
+ * is_palindrome - check if a string is a palindrome
+ * @s: string to check
+ * Return: 0 or 1
  */
-int is_palindrome_substr(char *s, int left, int right)
-{
-	if (left == right || (right - left == 1 && *(s + left) == *(s + right)))
-		return (1);
-	else if ((*(s + left) == *(s + right)) && (right - left > 1))
-		return (is_palindrome_substr(s, left + 1, right - 1));
-	else
-		return (0);
-}
 
-/**
- * is_palindrome - Checks if a string is a palindrome
- * @s: The string to check
- *
- * Return: 1 if s is a palindrome, otherwise 0
- */
 int is_palindrome(char *s)
 {
-	int len = _strlen_recursion(s);
+	int end = last_index(s);
 
-	if (*s == '\0')
-		return (1);
-	else if (*s == s[len - 1])
-		return (len > 2 ? is_palindrome_substr(s, 1, len - 2) : 1);
-	else
-		return (0);
+	return (check(s, 0, end - 1, end % 2));
+}
+
+/**
+ * check - checker for the palindrome
+ * @s: string
+ * @start: int moves from right to left
+ * @end: int moves from left to right
+ * @pair: int
+ * Return: 0 or 1
+ */
+int check(char *s, int start, int end, int pair)
+{
+if ((start == end && pair != 0) || (start == end + 1 && pair == 0))
+return (1);
+else if (s[start] != s[end])
+return (0);
+else
+return (check(s, start + 1, end - 1, pair));
 }
